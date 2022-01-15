@@ -1,7 +1,7 @@
 import React from 'react';
 import LogIn from './login';
 import SignUp from './signup';
-import './pages.css';
+import './home.css';
 
 class Home extends React.Component {
     constructor(props){
