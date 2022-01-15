@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #8a2be2;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #280d42;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #511b83ab;
+}
+.container label, .container input, .container button{
+    padding: 5px;
+    border-radius: 5px;
+    margin: 15px 30px 15px 30px;
+}
+.container input{
+    border: none;
+}
+.logInContainer, .signUpContainer{
+    display: flex;
+    flex-direction: column;
+}
