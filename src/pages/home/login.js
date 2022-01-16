@@ -2,7 +2,7 @@ const LogIn = () => {
     return (
         <>
             <input placeholder="Email"></input>
-            <input placeholder="Password"></input>
+            <input type='password' placeholder="Password"></input>
             <button>Log in</button>
         </>
     );

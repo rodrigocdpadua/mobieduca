@@ -3,7 +3,7 @@ const SignUp = () => {
         <>
             <input placeholder="Email"></input>
             <input placeholder="FullName"></input>
-            <input placeholder="Password"></input>
+            <input type='password' placeholder="Password"></input>
             <button>Sign Up</button>
         </>
     );

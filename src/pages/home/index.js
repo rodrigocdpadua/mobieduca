@@ -25,12 +25,14 @@ class Home extends React.Component {
                     {
                         this.state.type_connection == 'login' ?
                             <div className='logInContainer'>
+                                <h2>Log In</h2>
                                 <LogIn />
                                 <label>Don't have an account?</label>
                                 <button value='signup' onClick={this.changeType}>Sign Up</button>
                             </div>
                         :
                             <div className='signUpContainer'>
+                                <h2>Sign Up</h2>
                                 <SignUp />
                                 <label>Heve an account?</label>
                                 <button value='login' onClick={this.changeType}>Log In</button>

@@ -20,6 +20,7 @@ body{
 .header h1{
     margin: 20px;
     color: #280d42;
+    text-shadow: 0.5px 0.5px 2px #000000;
 }
 .header a{
     margin-right: 20px;
@@ -28,6 +29,7 @@ body{
     color: #280d42;
     background-color: #8a2be2;
     text-decoration: none;
+    box-shadow: 1px 1px 5px #000000;
 }
 .header a:hover{
     color: #43166d;
@@ -46,15 +48,21 @@ body{
     margin-top: 50px;
     margin-bottom: 50px;
     border-radius: 5px;
+    box-shadow: 1px 1px 10px #000000;
     background-color: #511b83ab;
 }
-.container label, .container input, .container button{
+.container label, .container input, .container button, .container h2{
     padding: 5px;
     border-radius: 5px;
     margin: 15px 30px 15px 30px;
 }
 .container input{
     border: none;
+}
+.container h2{
+    text-align: center;
+    text-shadow: 0.5px 0.5px 2px #000000;
+    color: #280d42;
 }
 .logInContainer, .signUpContainer{
     display: flex;
@@ -76,9 +84,13 @@ body{
     margin-bottom: 50px;
     border-radius: 5px;
     background-color: #511b83ab;
+    box-shadow: 1px 1px 10px #000000;
 }
 .add-school-form h2{
     margin-top: 20px;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 2px #000000;
+    color: #280d42;
 }
 .add-school-form button{
     padding: 5px;
