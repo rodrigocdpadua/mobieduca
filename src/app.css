@@ -118,3 +118,21 @@ body{
 .location-radio input, .shift-checkbox input{
     margin-right: 10px;
 }
+
+/*About Me Styles*/
+
+.aboutme-container{
+    display: flex;
+    flex-direction: column;
+}
+.aboutme-container h2{
+    margin-top: 20px;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 2px #000000;
+    color: #280d42;
+}
+.about-me, .tools, .difficulty, .suggestions{
+    margin-top: 50px;
+    height: 200px;
+    background-color: #511b83ab;
+}
