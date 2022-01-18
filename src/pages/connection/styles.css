@@ -1,0 +1,45 @@
+.connection-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.connection-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding: 25px 30px 25px 30px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #000000;
+    background-color: #511b83ab;
+}
+.connection-card h2{
+    text-shadow: 0.5px 0.5px 2px #000000;
+    color: #280d42;
+}
+.connection-card label{
+    margin-bottom: 20px;
+    color: #280d42;
+}
+.connection-card button{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.login-form, .signup-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.login-form input, .signup-form input{
+    margin-bottom: 20px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}

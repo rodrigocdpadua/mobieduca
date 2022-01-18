@@ -36,39 +36,6 @@ body{
     background-color: #9a2ffd;
 }
 
-/*LogIn SignUp Styles*/
-
-.main{
-    display: flex;
-    justify-content: center;
-}
-.container{
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border-radius: 5px;
-    box-shadow: 1px 1px 10px #000000;
-    background-color: #511b83ab;
-}
-.container label, .container input, .container button, .container h2{
-    padding: 5px;
-    border-radius: 5px;
-    margin: 15px 30px 15px 30px;
-}
-.container input{
-    border: none;
-}
-.container h2{
-    text-align: center;
-    text-shadow: 0.5px 0.5px 2px #000000;
-    color: #280d42;
-}
-.logInContainer, .signUpContainer{
-    display: flex;
-    flex-direction: column;
-}
-
 /*Add School Styles*/
 
 .add-school-container{
