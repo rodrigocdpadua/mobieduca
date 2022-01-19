@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "rodrigo.cdpadua@gmail.com",
+      "fullName": "Rodrigo Campos",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "email": "matheusrldc.ml@gmail.com",
+      "fullName": "R Campos",
+      "password": "123456",
+      "id": 2
+    }
+  ]
+}

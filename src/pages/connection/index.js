@@ -22,7 +22,7 @@ class Connection extends React.Component {
         return(
             <div className='connection-container'>
                 {
-                    this.state.type_connection == 'login' ?
+                    this.state.type_connection === 'login' ?
                         <div className='connection-card'>
                             <h2>Log In</h2>
                             <LogIn />
