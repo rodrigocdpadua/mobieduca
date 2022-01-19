@@ -1,12 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {useNavigate} from 'react-router-dom'
+import { AuthContext } from '../../auth'
 import './styles.css'
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+    const {login} = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,7 +18,7 @@ const SignUp = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({email, fullName, password})
-        }).then(navigate('/'));
+        }).then(login());
     }
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
