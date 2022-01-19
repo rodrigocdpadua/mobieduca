@@ -4,10 +4,7 @@ import Routes from './routes';
 
 const App = () => {
   return (
-    <>
-      <Header />
-      <Routes />
-    </>
+    <Routes />
   );
 }
 

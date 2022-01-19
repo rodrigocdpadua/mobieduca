@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import Header from './components/header';
 import Connection from './pages/connection';
 import AddSchools from './pages/add_schools';
 import AboutMe from './pages/about_me';
@@ -24,6 +25,7 @@ const AppRoutes = () => {
     return(
         <BrowserRouter>
             <AuthProvider>
+                <Header />
                 <Routes>
                     <Route path='/' element={<LoggedOut><Connection /></LoggedOut>}/>
                     <Route path='add-schools' element={<Private><AddSchools /></Private>} />
