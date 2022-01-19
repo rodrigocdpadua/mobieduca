@@ -1,5 +1,4 @@
 import React, {useState, useContext} from 'react'
-import {useNavigate} from 'react-router-dom'
 import { AuthContext } from '../../auth'
 import './styles.css'
 
@@ -7,7 +6,7 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
-    const {login} = useContext(AuthContext)
+    const {login} = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();

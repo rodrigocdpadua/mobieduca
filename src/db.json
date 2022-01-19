@@ -12,5 +12,17 @@
       "password": "123456",
       "id": 2
     }
+  ],
+  "schools": [
+    {
+      "schoolName": "Colégio Teste",
+      "director": "Testador",
+      "localization": "Urban",
+      "shift": [
+        "Morning",
+        "Night"
+      ],
+      "id": 1
+    }
   ]
 }
