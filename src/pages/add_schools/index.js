@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
-import '../../app.css';
+import AddSchoolsList from './add_school_list'
+import './styles.css';
 
 const AddSchools = () => {
     const [schoolName, setSchoolName] = useState('');
     const [director, setDirector] = useState('');
     const [localization, setLocalization] = useState('');
     const [shift, setShift] = useState([]);
+    const [listSchoolsChange, setListSchoolsChange] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,7 +18,13 @@ const AddSchools = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({schoolName, director, localization, shift})
-        }).then(console.log('Added School'));
+        }).then(() => {
+            setSchoolName('');
+            setDirector('');
+            setLocalization('');
+            setShift([]);
+            setListSchoolsChange('changed')
+        });
     }
 
     const handleChangeSchoolName = (e) => {
@@ -72,6 +80,7 @@ const AddSchools = () => {
                                 type='radio'
                                 name='loc'
                                 value='Urban'
+                                checked={localization === 'Urban'}
                                 onChange={handleChangeLocalization}
                             />
                             Urban
@@ -82,6 +91,7 @@ const AddSchools = () => {
                                 type='radio'
                                 name='loc'
                                 value='Rural'
+                                checked={localization === 'Rural'}
                                 onChange={handleChangeLocalization}
                             />
                             Rural
@@ -96,6 +106,7 @@ const AddSchools = () => {
                                 type='checkbox'
                                 name='shift'
                                 value='Morning'
+                                checked={shift.indexOf('Morning') >= 0}
                                 onChange={handleChangeShift}
                             />    
                             Morning
@@ -106,6 +117,7 @@ const AddSchools = () => {
                                 type='checkbox'
                                 name='shift'
                                 value='Afternoon'
+                                checked={shift.indexOf('Afternoon') >= 0}
                                 onChange={handleChangeShift}
                             />
                             Afternoon
@@ -116,6 +128,7 @@ const AddSchools = () => {
                                 type='checkbox'
                                 name='shift'
                                 value='Night'
+                                checked={shift.indexOf('Night') >= 0}
                                 onChange={handleChangeShift}
                             />
                             Night
@@ -126,6 +139,7 @@ const AddSchools = () => {
                                 type='checkbox'
                                 name='shift'
                                 value='Full'
+                                checked={shift.indexOf('Full') >= 0}
                                 onChange={handleChangeShift}
                             />
                             Full
@@ -135,9 +149,7 @@ const AddSchools = () => {
                     <button type='submit'>Submit</button>
                 </form>
             </div>
-            <div className='add-school-list'>
-                <h2>Added Schools</h2>
-            </div>
+            <AddSchoolsList listSchoolsChange={listSchoolsChange}/>
         </>
     );
 }

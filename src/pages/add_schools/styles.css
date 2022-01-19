@@ -1,0 +1,94 @@
+.add-school-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add-school-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    background-color: #511b83ab;
+    box-shadow: 1px 1px 10px #000000;
+}
+.add-school-form h2{
+    margin-top: 20px;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 2px #000000;
+    color: #280d42;
+}
+.add-school-form button{
+    padding: 5px;
+    border-radius: 5px;
+    margin: 15px 30px 15px 30px;
+    align-self: flex-start;
+}
+.school-input, .location-radio, .shift-checkbox{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px
+}
+.school-input input{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin: 15px 30px 15px 30px;
+}
+.location-radio, .shift-checkbox{
+    align-self: flex-start;
+}
+.location-radio label, .shift-checkbox label{
+    margin: 5px 30px 10px 30px;
+}
+.location-radio input, .shift-checkbox input{
+    margin-right: 10px;
+}
+
+.add-school-list-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-school-list-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    background-color: #511b83ab;
+    box-shadow: 1px 1px 10px #000000;
+}
+.add-school-list-card h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 2px #000000;
+    color: #280d42;
+}
+.school-item{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px 20px 20px;
+    max-width: 700px;
+    min-width: 700px;
+    border-radius: 5px;
+    color: #280d42;
+    background-color: #8a2be2;
+    box-shadow: 1px 1px 5px #000000;
+}
+.school-item h3{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.school-desc{
+    display: flex;
+    justify-content: space-between;
+}
+.school-desc p{
+    margin: 10px 10px 10px 10px;
+}

@@ -19,10 +19,30 @@
       "director": "Testador",
       "localization": "Urban",
       "shift": [
-        "Morning",
-        "Night"
+        "Morning"
       ],
       "id": 1
+    },
+    {
+      "schoolName": "Colégio Teste",
+      "director": "Testador",
+      "localization": "Rural",
+      "shift": [
+        "Full",
+        "Night"
+      ],
+      "id": 2
+    },
+    {
+      "schoolName": "Colégio Teste Teste Maior",
+      "director": "Rodrigo Campos de Pádua",
+      "localization": "Urban",
+      "shift": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "id": 3
     }
   ]
 }
