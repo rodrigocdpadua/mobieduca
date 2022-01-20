@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Loading from '../../components/loading'
 import './styles.css'
 
 const ListSchoolsApi = () => {
@@ -9,12 +10,14 @@ const ListSchoolsApi = () => {
 
     const [searchKey, setSearchKey] = useState('')
     const [listSchools, setListSchools] = useState([])
+    const [loading, setLoading] = useState(false)
 
     async function getApi(url) {
         const xhr = new XMLHttpRequest()
         xhr.open('GET', url, true)    
         xhr.responseType = 'json'
-    
+        
+        setLoading(true)
         const result = await new Promise(function (resolve, reject) {
             xhr.onload = function (e) {
                 if (xhr.readyState === 4 && xhr.status === 200) {
@@ -26,7 +29,7 @@ const ListSchoolsApi = () => {
         
             xhr.send()
         })
-
+        setLoading(false)
         return (result.response[1])
     }
 
@@ -88,6 +91,7 @@ const ListSchoolsApi = () => {
                 </tbody>
             </table>
             }
+            {loading && <Loading />}
         </div>
     )
 }

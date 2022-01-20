@@ -42,6 +42,8 @@
 .table-list-school{
     margin-bottom: 50px;
     border-collapse: collapse;
+    max-width: 900px;
+    min-width: 900px
 }
 .table-list-school th, .table-list-school td{
     border: 1px solid #000000;
