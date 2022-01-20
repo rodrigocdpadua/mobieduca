@@ -1,0 +1,62 @@
+.list-schools-api{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 800px;
+}
+.list-schools-api h2{
+    margin-top: 50px;
+    margin-bottom: 25px;
+    text-shadow: 0.5px 0.5px 2px #000000;
+    color: #280d42;
+}
+
+.search-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    min-width: 400px;
+}
+.search-container input{
+    padding: 5px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+}
+.search-container button{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #280d42;
+    background-color: #8a2be2;
+    text-decoration: none;
+    box-shadow: 1px 1px 5px #000000;
+}
+.search-container button:hover{
+    color: #43166d;
+    background-color: #9a2ffd;
+}
+
+/* TABLE */
+.table-list-school{
+    margin-bottom: 50px;
+    border-collapse: collapse;
+}
+.table-list-school th, .table-list-school td{
+    border: 1px solid #000000;
+    padding: 8px;
+}
+.table-list-school th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #511b83ab;
+    color: #280d42;
+}
+.table-list-school tr:nth-child(even){
+    background-color: #7b2bc5;
+}
+.table-list-school tbody tr:hover {
+    background-color: #9a2ffd;
+}

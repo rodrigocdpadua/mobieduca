@@ -4,7 +4,7 @@ import Header from './components/header';
 import Connection from './pages/connection';
 import AddSchools from './pages/add_schools';
 import AboutMe from './pages/about_me';
-//import ListSchoolsApi from './pages/list_schools_api';
+import ListSchoolsApi from './pages/list_schools_api';
 import NotFound from './components/not_found';
 import Loading from './components/loading';
 import { AuthProvider, AuthContext } from './auth';
@@ -32,7 +32,7 @@ const AppRoutes = () => {
                 <Routes>
                     <Route path='/' element={<LoggedOut><Connection /></LoggedOut>}/>
                     <Route path='add-schools' element={<Private><AddSchools /></Private>} />
-                    <Route path='list-schools' element={<Private><h1>Shcools List</h1></Private>}/>
+                    <Route path='list-schools' element={<Private><ListSchoolsApi /></Private>}/>
                     <Route path='about-me' element={<AboutMe />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
