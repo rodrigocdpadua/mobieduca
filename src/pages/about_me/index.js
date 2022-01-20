@@ -16,12 +16,12 @@ class AboutMe extends React.Component{
                     <ul>
                         <p>
                             <li>
-                                Editor de Texto: VScode
+                                Editor de Texto: VScode 1.63.2
                             </li>
                         </p>
                         <p>
                             <li>
-                                Linguagem: JavaScript -- Biblioteca: React.js
+                                Linguagem: JavaScript -- Biblioteca: React.js 17.0.2
                             </li>
                         </p>
                         <p>
@@ -31,12 +31,12 @@ class AboutMe extends React.Component{
                         </p>
                         <p>
                             <li>
-                                json-server - Armazenar dados mockados (Usuários e Escolas).
+                                json-server 0.17.0 - Armazenar dados mockados (Usuários e Escolas).
                             </li>
                         </p>
                         <p>
                             <li>
-                                react-touter-dom - Trabalhar com rotas no sistema.
+                                react-touter-dom 6.2.1 - Trabalhar com rotas no sistema.
                             </li>
                         </p>
                     </ul>
