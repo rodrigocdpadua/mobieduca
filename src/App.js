@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './components/header';
 import Routes from './routes';
+import './app.css';
 
 const App = () => {
   return (

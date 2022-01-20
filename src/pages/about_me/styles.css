@@ -1,0 +1,30 @@
+.aboutme-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.aboutme-container h2{
+    margin-bottom: 25px;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 2px #000000;
+    color: #280d42;
+}
+.aboutme-container p{
+    margin: 0px 20px 15px 20px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #280d42;
+}
+.aboutme-container li{
+    margin-left: 20px;
+}
+.about-me, .tools, .difficulty, .suggestions{
+    margin-top: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    min-height: 200px;
+    background-color: #511b83ab;
+}
+.suggestions{
+    margin-bottom: 50px;
+}
