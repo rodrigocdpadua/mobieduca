@@ -10,6 +10,14 @@ class AboutMe extends React.Component{
                     <p>
                         Desenvolvedor front-end em crescimento. Iniciei o curso de Ciências da Computação na Universidade Estadual do Piauí (UESPI) onde adquiri experiência em programação e trabalho em equipe. Fiz projetos freelancer para trabalhos acadêmicos de alunos da universidade. Atualmente possuo conhecimento em algumas linguagens de programação e sempre estou praticando e utilizando o GitHub para armazenar o meu progresso. Estou aberto a aprender e ampliar meus conhecimentos na área de desenvolvimento e progredir na minha carreira.
                     </p>
+                    <div className='links'>
+                        <label>GitHub:</label>
+                        <a href='https://github.com/rodrigocdpadua'>https://github.com/rodrigocdpadua</a>
+                    </div>
+                    <div className='links'>
+                        <label>LinkedIn:</label>
+                        <a href='https://www.linkedin.com/in/rodrigo-campos-p/'>https://www.linkedin.com/in/rodrigo-campos-p/</a>
+                    </div>
                 </section>
                 <section className='tools'>
                     <h2>Tolls Used</h2>
