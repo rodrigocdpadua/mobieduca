@@ -12,11 +12,11 @@ class AboutMe extends React.Component{
                     </p>
                     <div className='links'>
                         <label>GitHub:</label>
-                        <a href='https://github.com/rodrigocdpadua'>https://github.com/rodrigocdpadua</a>
+                        <a href='https://github.com/rodrigocdpadua' target='_blank'>https://github.com/rodrigocdpadua</a>
                     </div>
                     <div className='links'>
                         <label>LinkedIn:</label>
-                        <a href='https://www.linkedin.com/in/rodrigo-campos-p/'>https://www.linkedin.com/in/rodrigo-campos-p/</a>
+                        <a href='https://www.linkedin.com/in/rodrigo-campos-p/' target='_blank'>https://www.linkedin.com/in/rodrigo-campos-p/</a>
                     </div>
                 </section>
                 <section className='tools'>
@@ -45,6 +45,11 @@ class AboutMe extends React.Component{
                         <p>
                             <li>
                                 react-touter-dom 6.2.1 - Trabalhar com rotas no sistema.
+                            </li>
+                        </p>
+                        <p>
+                            <li>
+                                GitHub - Controle de versão.
                             </li>
                         </p>
                     </ul>
