@@ -1,12 +1,14 @@
 import React, {useState, useContext} from 'react'
 import { AuthContext } from '../../auth'
+import Loading from '../../components/loading'
 import './styles.css'
 
 const LogIn = () => {
     const {login} = useContext(AuthContext)
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const clearInputs = () => {
         setEmail('')
@@ -17,6 +19,8 @@ const LogIn = () => {
         const http = new XMLHttpRequest()
         http.open('GET', 'http://localhost:5000/users', true)
         http.responseType = 'json'
+
+        setLoading(true);
 
         http.onload = function(){
             const users = http.response
@@ -30,6 +34,7 @@ const LogIn = () => {
         http.onerror = function(){
             alert('Failed to Connect to Server')
             clearInputs()
+            setLoading(false);
         }
 
         http.send()
@@ -48,25 +53,28 @@ const LogIn = () => {
     }
 
     return (
-        <form className='login-form' onSubmit={handleSubmit}>
-            <input
-                id='email'
-                type='email'
-                name='email'
-                value={email}
-                placeholder='Email'
-                onChange={handleChangeEmail}
-            />
-            <input
-                id='password'
-                type='password'
-                name='password'
-                value={password}
-                placeholder='Password'
-                onChange={handleChangePassword}
-            />
-            <button type='submit'>Log in</button>
-        </form>
+        <>
+            <form className='login-form' onSubmit={handleSubmit}>
+                <input
+                    id='email'
+                    type='email'
+                    name='email'
+                    value={email}
+                    placeholder='Email'
+                    onChange={handleChangeEmail}
+                />
+                <input
+                    id='password'
+                    type='password'
+                    name='password'
+                    value={password}
+                    placeholder='Password'
+                    onChange={handleChangePassword}
+                />
+                <button type='submit'>Log in</button>
+            </form>
+            {loading && <Loading  />}
+        </>
     );
 }
 

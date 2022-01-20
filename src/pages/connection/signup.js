@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { AuthContext } from '../../auth'
+import Loading from '../../components/loading'
 import './styles.css'
 
 const SignUp = () => {
@@ -7,27 +8,13 @@ const SignUp = () => {
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
     const {login} = useContext(AuthContext);
+    const [loading, setLoading] = useState(false)
 
     const clearInputs = () => {
         setEmail('')
         setFullName('')
         setPassword('')
     }
-
-    /*async function post_json(){
-        await fetch('http://localhost:5000/users', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({email, fullName, password})
-        })
-        .then(login(fullName, email))
-        .catch(() => {
-            alert('Failed to Connect to Server')
-            clearInputs()
-        })
-    }*/
 
     const post_json = () => {
         const http = new XMLHttpRequest()
@@ -36,12 +23,15 @@ const SignUp = () => {
         http.open('POST', 'http://localhost:5000/users', true)
         http.setRequestHeader('Content-type', 'application/json')
 
+        setLoading(true);
+
         http.onload = function() {
             login(fullName, email)
         }
         http.onerror = function() {
             alert('Failed to Connect to Server')
             clearInputs()
+            setLoading(false);
         }
 
         http.send(body)
@@ -63,36 +53,39 @@ const SignUp = () => {
     }
 
     return(
-        <form className='signup-form' onSubmit={handleSubmit}>
-            <input
-                id='email'
-                type='email'
-                name='email'
-                value={email}
-                placeholder='Email *'
-                required
-                onChange={handleChangeEmail}
-            />
-            <input
-                id='fullName'
-                type='text'
-                name='fullName'
-                value={fullName}
-                placeholder='Full Name *'
-                required
-                onChange={handleChangeFullName}
-            />
-            <input
-                id='password'
-                type='password'
-                name='password'
-                value={password}
-                placeholder='Password *'
-                required
-                onChange={handleChangePassword}
-            />
-            <button type='submit'>Sign Up</button>
-        </form>
+        <>
+            <form className='signup-form' onSubmit={handleSubmit}>
+                <input
+                    id='email'
+                    type='email'
+                    name='email'
+                    value={email}
+                    placeholder='Email *'
+                    required
+                    onChange={handleChangeEmail}
+                />
+                <input
+                    id='fullName'
+                    type='text'
+                    name='fullName'
+                    value={fullName}
+                    placeholder='Full Name *'
+                    required
+                    onChange={handleChangeFullName}
+                />
+                <input
+                    id='password'
+                    type='password'
+                    name='password'
+                    value={password}
+                    placeholder='Password *'
+                    required
+                    onChange={handleChangePassword}
+                />
+                <button type='submit'>Sign Up</button>
+            </form>
+            {loading && <Loading  />}
+        </>
     );
 }
 

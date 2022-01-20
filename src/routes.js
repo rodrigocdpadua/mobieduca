@@ -6,6 +6,7 @@ import AddSchools from './pages/add_schools';
 import AboutMe from './pages/about_me';
 //import ListSchoolsApi from './pages/list_schools_api';
 import NotFound from './components/not_found';
+import Loading from './components/loading';
 import { AuthProvider, AuthContext } from './auth';
 
 const AppRoutes = () => {
@@ -13,7 +14,7 @@ const AppRoutes = () => {
         const { authenticated, loading } = useContext(AuthContext);
 
         if(loading){
-            return <div className='loading'>Loading</div>
+            return <Loading />
         }
         
         return !authenticated ? <Navigate to='/' /> : children
