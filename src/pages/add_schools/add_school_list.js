@@ -17,18 +17,28 @@ const AddSchoolList = (props) => {
         <div className="add-school-list-container">
             <div className="add-school-list-card">
                 <h2>Added Schools</h2>
-                {
-                    listSchools.map((school, key) => 
-                        <div className="school-item" key={key}>
-                            <h3>{school.schoolName}</h3>
-                            <div className="school-desc">
-                                <p>Director: {school.director}</p>
-                                <p>Localization: {school.localization}</p>
-                                <p>Shift: {school.shift.join(' / ')}</p>
-                            </div>
-                        </div>
-                    )
-                }
+                <table className='table-list-school'>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Director</th>
+                            <th>Localization</th>
+                            <th>Shift</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            listSchools.map((school, key) => 
+                                <tr key={key}>
+                                    <td>{school.schoolName}</td>
+                                    <td>{school.director}</td>
+                                    <td>{school.localization}</td>
+                                    <td>{school.shift.join(' / ')}</td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     );
