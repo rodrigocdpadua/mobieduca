@@ -71,7 +71,7 @@ const LogIn = () => {
                     placeholder='Password'
                     onChange={handleChangePassword}
                 />
-                <button type='submit'>Log in</button>
+                <button className='button-submit' type='submit'>Log in</button>
             </form>
             {loading && <Loading  />}
         </>

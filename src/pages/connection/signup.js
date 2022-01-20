@@ -82,7 +82,7 @@ const SignUp = () => {
                     required
                     onChange={handleChangePassword}
                 />
-                <button type='submit'>Sign Up</button>
+                <button className='button-submit' type='submit'>Sign Up</button>
             </form>
             {loading && <Loading  />}
         </>

@@ -5,6 +5,9 @@
     height: 100px;
     background-color: #511b83ab;
 }
+.nav{
+    white-space: nowrap;
+}
 .header h1{
     margin: 20px;
     color: #280d42;
@@ -22,4 +25,10 @@
 .header a:hover{
     color: #43166d;
     background-color: #9a2ffd;
+}
+#logout{
+    background-color: #e22b2b;
+}
+#logout:hover{
+    background-color: #fd2f2f;
 }

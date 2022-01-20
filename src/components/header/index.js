@@ -20,7 +20,7 @@ const Header = () => {
                     <Link to='/list-schools'>List Schools</Link>
                     <Link to='/add-schools'>Add Schools</Link>
                     <Link to='/about-me'>About Me</Link>
-                    <Link to='/' onClick={handleLogout}>Log Out</Link>
+                    <Link id='logout' to='/' onClick={handleLogout}>Log Out</Link>
                 </nav>
                 :
                 <nav className='nav'>

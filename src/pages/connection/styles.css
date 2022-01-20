@@ -21,11 +21,13 @@
 }
 .connection-card label{
     margin-bottom: 20px;
+    text-decoration: underline;
     color: #280d42;
 }
 .connection-card button{
     padding: 5px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .login-form, .signup-form{
@@ -42,4 +44,17 @@
     padding: 5px;
     border: none;
     border-radius: 5px;
+}
+
+.connection-card .button-submit{
+    padding: 10px;
+    border: none;
+    color: #280d42;
+    background-color: #8a2be2;
+    text-decoration: none;
+    box-shadow: 1px 1px 5px #000000;
+}
+.button-submit:hover{
+    color: #43166d;
+    background-color: #9a2ffd;
 }
