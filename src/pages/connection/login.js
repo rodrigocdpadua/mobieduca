@@ -8,19 +8,37 @@ const LogIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        fetch('http://localhost:5000/users')
-        .then(res => res.json())
-        .then(
-            users => {
-                const userFound = users.find(user => (user.email === email && user.password === password))
-                userFound ?
-                login(userFound.fullName, userFound.email, userFound.password) :
+    const clearInputs = () => {
+        setEmail('')
+        setPassword('')
+    }
+
+    const get_json = () => {
+        const http = new XMLHttpRequest()
+        http.open('GET', 'http://localhost:5000/users', true)
+        http.responseType = 'json'
+
+        http.onload = function(){
+            const users = http.response
+            const userFound = users.find(user => (user.email === email && user.password === password))
+            userFound ?
+                login(userFound.fullName, userFound.email, userFound.password)
+            :
                 alert('Email or Password Invalid!')
-            }
-        );
+                clearInputs()
+        }
+        http.onerror = function(){
+            alert('Failed to Connect to Server')
+            clearInputs()
+        }
+
+        http.send()
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+        get_json()
     }
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);

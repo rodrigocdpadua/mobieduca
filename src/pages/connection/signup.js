@@ -8,16 +8,49 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const {login} = useContext(AuthContext);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        fetch('http://localhost:5000/users', {
+    const clearInputs = () => {
+        setEmail('')
+        setFullName('')
+        setPassword('')
+    }
+
+    /*async function post_json(){
+        await fetch('http://localhost:5000/users', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({email, fullName, password})
-        }).then(login());
+        })
+        .then(login(fullName, email))
+        .catch(() => {
+            alert('Failed to Connect to Server')
+            clearInputs()
+        })
+    }*/
+
+    const post_json = () => {
+        const http = new XMLHttpRequest()
+        const body = JSON.stringify({email, fullName, password})
+
+        http.open('POST', 'http://localhost:5000/users', true)
+        http.setRequestHeader('Content-type', 'application/json')
+
+        http.onload = function() {
+            login(fullName, email)
+        }
+        http.onerror = function() {
+            alert('Failed to Connect to Server')
+            clearInputs()
+        }
+
+        http.send(body)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        post_json();
     }
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
