@@ -32,3 +32,6 @@
 #logout:hover{
     background-color: #ff8484;
 }
+#logout:active{
+    background-color: #e46060;
+}

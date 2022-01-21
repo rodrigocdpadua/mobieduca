@@ -30,6 +30,7 @@
     background-color: var(--button-color);
     text-decoration: none;
     box-shadow: 1px 1px 5px #000000;
+    cursor: pointer;
 }
 .search-container button:hover{
     background-color: var(--button-color-hover);

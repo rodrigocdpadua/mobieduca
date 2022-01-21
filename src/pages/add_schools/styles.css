@@ -24,8 +24,8 @@
     border: none;
     border-radius: 5px;
     background-color: var(--button-color);
-    text-decoration: none;
     box-shadow: 1px 1px 5px #000000;
+    cursor: pointer;
 }
 .add-school-form button:hover{
     background-color: var(--button-color-hover);
@@ -72,4 +72,22 @@
     margin-bottom: 20px;
     text-align: center;
     text-shadow: 0.5px 0.5px 2px #000000;
+}
+#td-delete{
+    text-align: center;
+}
+.delete-school-button{
+    padding: 5px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #e47878;
+    box-shadow: 1px 1px 5px #000000;
+    cursor: pointer;
+}
+.delete-school-button:hover{
+    background-color: #ff8484;
+}
+.delete-school-button:active:active{
+    background-color: #e46060;
 }
