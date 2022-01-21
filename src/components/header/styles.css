@@ -3,32 +3,32 @@
     justify-content: space-between;
     align-items: center;
     height: 100px;
-    background-color: #511b83ab;
+    background-color: var(--container-color);
 }
 .nav{
     white-space: nowrap;
 }
 .header h1{
     margin: 20px;
-    color: #280d42;
     text-shadow: 0.5px 0.5px 2px #000000;
 }
 .header a{
     margin-right: 20px;
     padding: 10px;
     border-radius: 5px;
-    color: #280d42;
-    background-color: #8a2be2;
+    background-color: var(--button-color);
     text-decoration: none;
     box-shadow: 1px 1px 5px #000000;
 }
 .header a:hover{
-    color: #43166d;
-    background-color: #9a2ffd;
+    background-color: var(--button-color-hover);
+}
+.header a:active{
+    background-color: var(--button-color-active);
 }
 #logout{
-    background-color: #e22b2b;
+    background-color: #e47878;
 }
 #logout:hover{
-    background-color: #fd2f2f;
+    background-color: #ff8484;
 }

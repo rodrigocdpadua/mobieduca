@@ -9,7 +9,6 @@
     margin-top: 50px;
     margin-bottom: 25px;
     text-shadow: 0.5px 0.5px 2px #000000;
-    color: #280d42;
 }
 
 .search-container{
@@ -21,21 +20,22 @@
 .search-container input{
     padding: 5px;
     width: 250px;
-    border: none;
+    border: 1px solid var(--container-color);
     border-radius: 5px;
 }
 .search-container button{
     padding: 10px;
     border: none;
     border-radius: 5px;
-    color: #280d42;
-    background-color: #8a2be2;
+    background-color: var(--button-color);
     text-decoration: none;
     box-shadow: 1px 1px 5px #000000;
 }
 .search-container button:hover{
-    color: #43166d;
-    background-color: #9a2ffd;
+    background-color: var(--button-color-hover);
+}
+.search-container button:active{
+    background-color: var(--button-color-active);
 }
 
 /* TABLE */
@@ -53,12 +53,11 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #511b83ab;
-    color: #280d42;
+    background-color: var(--container-color);
 }
 .table-list-school tr:nth-child(even){
-    background-color: #7b2bc5;
+    background-color: #d1ebcc;
 }
 .table-list-school tbody tr:hover {
-    background-color: #9a2ffd;
+    background-color: #dbe6d9;
 }
