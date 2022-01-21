@@ -40,7 +40,7 @@ O servidor está rodando em **http://localhost:5000/**<br />
 * Usuários: **http://localhost:5000/users**
 * Escolas: **http://localhost:5000/schools**
 ## Demo do CORS Anywhere
-Pode ocorrer problemas para conectar com a API fornecida na hora de Buscar Escolas.<br />
-### Caso aconteça:<br />
+Foi utilizado um proxy pois estava tendo problemas para conectar com a API fornecida com o localhost.<br />
+### Para Resolver:<br />
 Desbloqueie um acesso temporário a essa Demo pelo link: https://cors-anywhere.herokuapp.com/corsdemo.<br />
 Atualiza a página: **http://localhost:3000/**
