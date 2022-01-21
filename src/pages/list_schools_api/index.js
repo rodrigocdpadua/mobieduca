@@ -13,21 +13,21 @@ const ListSchoolsApi = () => {
     const [loading, setLoading] = useState(false)
 
     async function getApi(url) {
-        const xhr = new XMLHttpRequest()
-        xhr.open('GET', url, true)    
-        xhr.responseType = 'json'
+        const http = new XMLHttpRequest()
+        http.open('GET', url, true)    
+        http.responseType = 'json'
         
         setLoading(true)
         const result = await new Promise(function (resolve, reject) {
-            xhr.onload = function (e) {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    resolve(xhr)
+            http.onload = function (e) {
+                if (http.readyState === 4 && http.status === 200) {
+                    resolve(http)
                 } else {
-                    reject(xhr)
+                    reject(http)
                 }
             }
         
-            xhr.send()
+            http.send()
         })
         setLoading(false)
         return (result.response[1])

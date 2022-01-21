@@ -30,6 +30,7 @@ const LogIn = () => {
             :
                 alert('Email or Password Invalid!')
                 clearInputs()
+                setLoading(false);
         }
         http.onerror = function(){
             alert('Failed to Connect to Server')

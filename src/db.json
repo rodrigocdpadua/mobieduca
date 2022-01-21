@@ -1,17 +1,43 @@
 {
   "users": [
     {
-      "email": "rodrigo.cdpadua@gmail.com",
-      "fullName": "Rodrigo Campos",
+      "email": "teste@teste.com",
+      "fullName": "Nome Teste",
       "password": "123456",
       "id": 1
-    },
-    {
-      "email": "matheusrldc.ml@gmail.com",
-      "fullName": "Matheus",
-      "password": "123456",
-      "id": 2
     }
   ],
-  "schools": []
+  "schools": [
+    {
+      "schoolName": "Colégio Teste",
+      "director": "Testador",
+      "localization": "Urban",
+      "shift": [
+        "Morning"
+      ],
+      "id": 7
+    },
+    {
+      "schoolName": "Colégio Teste Teste Maior",
+      "director": "Testador",
+      "localization": "Rural",
+      "shift": [
+        "Morning",
+        "Afternoon",
+        "Night",
+        "Full"
+      ],
+      "id": 8
+    },
+    {
+      "schoolName": "Colégio Teste",
+      "director": "Dr. Teste",
+      "localization": "Urban",
+      "shift": [
+        "Morning",
+        "Full"
+      ],
+      "id": 9
+    }
+  ]
 }

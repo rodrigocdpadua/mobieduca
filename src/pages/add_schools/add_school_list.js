@@ -1,28 +1,51 @@
 import React, { useEffect, useState } from "react";
+import Loading from '../../components/loading';
 
 const AddSchoolList = (props) => {
     const [listSchools, setListSchools] = useState([]);
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         updateListSchools()
     },[props.listSchoolsChange])
 
     const updateListSchools = () => {
+        setLoading(true);
         fetch('http://localhost:5000/schools')
         .then(res => res.json())
         .then(
-            schools => { setListSchools(schools) }
+            schools => {
+                setListSchools(schools)
+                setLoading(false)
+            }
         );
     }
 
-    const deleteSchool = (e) => {
-        const answer = window.confirm('Are you sure to delete this school?')
+    async function deleteSchool(e) {
+        const answer = window.confirm('Are you sure to delete this school?');
+        const url = 'http://localhost:5000/schools/' + e.target.value;
 
         if(answer){
-            fetch('http://localhost:5000/schools/' + e.target.value, {
-                method: 'DELETE'
+            const http = new XMLHttpRequest()
+            http.open('DELETE', url, true)    
+            http.responseType = 'json'
+
+            const result = await new Promise(function (resolve, reject) {
+                http.onload = function (e) {
+                    if (http.readyState === 4 && http.status === 200) {
+                        resolve(http)
+                        updateListSchools()
+                    } else {
+                        reject(http)
+                        alert('Error deleting school')
+                    }
+                }
+                http.onerror = function() {
+                    alert('Error deleting school')
+                }
+
+                http.send()
             })
-            .then(updateListSchools())
         }
     }
 
@@ -57,6 +80,7 @@ const AddSchoolList = (props) => {
                     </table>
                 </div>
             }
+            {loading && <Loading  />}
         </div>
     );
 }

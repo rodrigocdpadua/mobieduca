@@ -7,10 +7,12 @@ const AddSchools = () => {
     const [director, setDirector] = useState('');
     const [localization, setLocalization] = useState('');
     const [shift, setShift] = useState([]);
-    const [listSchoolsChange, setListSchoolsChange] = useState([]);
+    const [listSchoolsChange, setListSchoolsChange] = useState(false);
 
-    const handleSubmit = (e) => {
+    /*const handleSubmit = (e) => {
         e.preventDefault();
+        setListSchoolsChange(false)
+        setLoading(true);
 
         fetch('http://localhost:5000/schools', {
             method: "POST",
@@ -23,8 +25,36 @@ const AddSchools = () => {
             setDirector('');
             setLocalization('');
             setShift([]);
-            setListSchoolsChange('changed')
+            setListSchoolsChange(true)
+            setLoading(false);
         });
+    }*/
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setListSchoolsChange(false)
+
+        const http = new XMLHttpRequest()
+        const body = JSON.stringify({schoolName, director, localization, shift})
+        http.open('POST', 'http://localhost:5000/schools', true) 
+        http.setRequestHeader('Content-type', 'application/json')
+
+        const result = await new Promise(function (resolve, reject) {
+            http.onload = function() {
+                if (http.readyState === 4 && http.status === 201) {
+                    resolve(http)
+                    setSchoolName('');
+                    setDirector('');
+                    setLocalization('');
+                    setShift([]);
+                    setListSchoolsChange(true)
+                } else {
+                    reject(http)
+                    alert('Error')
+                }
+            }
+            http.send(body)
+        })
     }
 
     const handleChangeSchoolName = (e) => {
@@ -81,6 +111,7 @@ const AddSchools = () => {
                                 name='loc'
                                 value='Urban'
                                 checked={localization === 'Urban'}
+                                required
                                 onChange={handleChangeLocalization}
                             />
                             Urban
@@ -92,6 +123,7 @@ const AddSchools = () => {
                                 name='loc'
                                 value='Rural'
                                 checked={localization === 'Rural'}
+                                required
                                 onChange={handleChangeLocalization}
                             />
                             Rural

@@ -5,7 +5,7 @@ import './styles.css';
 
 const Header = () => {
 
-    const {authenticated, logout} = useContext(AuthContext)
+    const {authenticated, logout, user} = useContext(AuthContext)
 
     const handleLogout = () => {
         logout();
@@ -17,6 +17,7 @@ const Header = () => {
             {
                 authenticated ?
                 <nav className='nav'>
+                    <label>{user.name}</label>
                     <Link to='/list-schools'>List Schools</Link>
                     <Link to='/add-schools'>Add Schools</Link>
                     <Link to='/about-me'>About Me</Link>
