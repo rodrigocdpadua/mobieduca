@@ -49,6 +49,3 @@ $ npm install json-server --save
 ```
 Repita o comando anterior.<br />
 O servidor está rodando em **http://localhost:5000/**
-## Demo do CORS Anywhere
-Ocorreu problemas para conectar com a API fornecida.<br />
-Para resolver desbloqueie um acesso temporário a essa Demo pelo link: https://cors-anywhere.herokuapp.com/corsdemo.
