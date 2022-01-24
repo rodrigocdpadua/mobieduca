@@ -9,27 +9,6 @@ const AddSchools = () => {
     const [shift, setShift] = useState([]);
     const [listSchoolsChange, setListSchoolsChange] = useState(false);
 
-    /*const handleSubmit = (e) => {
-        e.preventDefault();
-        setListSchoolsChange(false)
-        setLoading(true);
-
-        fetch('http://localhost:5000/schools', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({schoolName, director, localization, shift})
-        }).then(() => {
-            setSchoolName('');
-            setDirector('');
-            setLocalization('');
-            setShift([]);
-            setListSchoolsChange(true)
-            setLoading(false);
-        });
-    }*/
-
     async function handleSubmit(e) {
         e.preventDefault();
         setListSchoolsChange(false)

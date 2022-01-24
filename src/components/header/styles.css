@@ -38,3 +38,18 @@
 #logout:active{
     background-color: #e46060;
 }
+
+@media (max-width: 1000px){
+    .header{
+        height: 140px;
+    }
+    .header h1{
+        font-size: 2.8em;
+    }
+    .nav label{
+        font-size: 1.8em;
+    }
+    .header a{
+        font-size: 1.8em;
+    }
+}
