@@ -3,7 +3,7 @@ const url = 'http://localhost:5000/';
 async function getUsers() {
     const datas = [];
 
-    await fetch(url+'datas', {method: 'GET'})
+    await fetch(url+'users', {method: 'GET'})
     .then(res => res.json())
     .then(result => datas.push(...result))
     .catch(err => {
