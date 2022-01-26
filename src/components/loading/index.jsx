@@ -1,4 +1,4 @@
-import './styles.css'
+import './styles.css';
 
 const Loading = () => {
     return(
@@ -6,4 +6,4 @@ const Loading = () => {
     );
 }
 
-export default Loading
+export default Loading;

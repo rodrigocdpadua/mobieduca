@@ -1,46 +1,39 @@
-import React, {useState, useContext} from 'react'
-import { AuthContext } from '../../auth'
-import Loading from '../../components/loading'
-import './styles.css'
+import React, {useState, useContext} from 'react';
+import { AuthContext } from '../../auth';
+import Loading from '../../components/loading';
+import { postUser } from '../../api_requests/json_server_req';
+import './styles.css';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
     const {login} = useContext(AuthContext);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     const clearInputs = () => {
-        setEmail('')
-        setFullName('')
-        setPassword('')
+        setEmail('');
+        setFullName('');
+        setPassword('');
     }
 
-    const post_json = () => {
-        const http = new XMLHttpRequest()
-        const body = JSON.stringify({email, fullName, password})
-
-        http.open('POST', 'http://localhost:5000/users', true)
-        http.setRequestHeader('Content-type', 'application/json')
-
+    async function reqPostUser() {
         setLoading(true);
 
-        http.onload = function() {
-            login(fullName, email)
+        if(await postUser({email: email, fullName: fullName, password: password})) {
+            login(fullName, email);
+        } else {
+            alert('Failed to Connect to Server');
+            clearInputs();
         }
-        http.onerror = function() {
-            alert('Failed to Connect to Server')
-            clearInputs()
-            setLoading(false);
-        }
-
-        http.send(body)
+        
+        setLoading(false);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        post_json();
+        reqPostUser();
     }
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
@@ -89,4 +82,4 @@ const SignUp = () => {
     );
 }
 
-export default SignUp
+export default SignUp;

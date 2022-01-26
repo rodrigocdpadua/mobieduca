@@ -1,5 +1,7 @@
-import React, {useState} from 'react'
-import AddSchoolsList from './add_school_list'
+import React, {useState} from 'react';
+import AddSchoolsList from './add_school_list';
+import Loading from '../../components/loading';
+import { postSchool } from '../../api_requests/json_server_req';
 import './styles.css';
 
 const AddSchools = () => {
@@ -8,32 +10,34 @@ const AddSchools = () => {
     const [localization, setLocalization] = useState('');
     const [shift, setShift] = useState([]);
     const [listSchoolsChange, setListSchoolsChange] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const clearInputs = () => {
+        setSchoolName('');
+        setDirector('');
+        setLocalization('');
+        setShift([]);
+    }
 
     async function handleSubmit(e) {
         e.preventDefault();
-        setListSchoolsChange(false)
+        
+        reqPostSchools();
+    }
 
-        const http = new XMLHttpRequest()
-        const body = JSON.stringify({schoolName, director, localization, shift})
-        http.open('POST', 'http://localhost:5000/schools', true) 
-        http.setRequestHeader('Content-type', 'application/json')
+    async function reqPostSchools() {
+        setListSchoolsChange(false);
+        setLoading(true);
+        
+        if(await postSchool({schoolName: schoolName, director: director, localization: localization, shift: shift})) {
+            clearInputs();
+            setListSchoolsChange(true);
+        } else {
+            alert('Failed to Connect to Server');
+            clearInputs();
+        }
 
-        const result = await new Promise(function (resolve, reject) {
-            http.onload = function() {
-                if (http.readyState === 4 && http.status === 201) {
-                    resolve(http)
-                    setSchoolName('');
-                    setDirector('');
-                    setLocalization('');
-                    setShift([]);
-                    setListSchoolsChange(true)
-                } else {
-                    reject(http)
-                    alert('Error')
-                }
-            }
-            http.send(body)
-        })
+        setLoading(false);
     }
 
     const handleChangeSchoolName = (e) => {
@@ -159,10 +163,11 @@ const AddSchools = () => {
 
                     <button type='submit'>Submit</button>
                 </form>
+                {loading && <Loading  />}
             </div>
             <AddSchoolsList listSchoolsChange={listSchoolsChange}/>
         </>
     );
 }
 
-export default AddSchools
+export default AddSchools;

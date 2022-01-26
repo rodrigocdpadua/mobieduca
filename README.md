@@ -1,5 +1,5 @@
 # Guia de Uso
-Esse guia vai ajuda você a instalar o projeto.
+Esse guia vai ajudar você a instalar o projeto.
 
 ## Dependencias
 * NodeJS (16.13.1)
@@ -25,7 +25,7 @@ Rode o seguinte comando:
 $ npm install
 ```
 ## Rodando o Projeto
-Para roda o projeto execute o seguinte comando:
+Para rodar o projeto execute o seguinte comando:
 ```shell
 // Usando npm
 $ npm start
@@ -35,12 +35,16 @@ $ yarn start
 ```
 O site está rodando em **http://localhost:3000/**
 ## Rodando json_server
-Vamos usar o json_server para simular uma API. Ele já está rodando junto com o React.<br />
+Vamos usar o json_server para simular uma API.<br />
+Para rodar o servidor execute o seguinte comando:
+```shell
+$ npx json-server --watch src/db.json -p 5000
+```
 O servidor está rodando em **http://localhost:5000/**<br />
 * Usuários: **http://localhost:5000/users**
 * Escolas: **http://localhost:5000/schools**
 ## Demo do CORS Anywhere
-Foi utilizado um proxy pois estava tendo problemas para conectar com a API fornecida com o localhost.<br />
+Foi utilizado um proxy, pois estava tendo problemas para conectar com a API fornecida com o localhost.<br />
 ### Para Resolver:<br />
 Desbloqueie um acesso temporário a essa Demo pelo link: https://cors-anywhere.herokuapp.com/corsdemo.<br />
 Atualiza a página: **http://localhost:3000/**

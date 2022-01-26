@@ -5,7 +5,7 @@ import './styles.css';
 
 const Header = () => {
 
-    const {authenticated, logout, user} = useContext(AuthContext)
+    const {authenticated, logout, user} = useContext(AuthContext);
 
     const handleLogout = () => {
         logout();

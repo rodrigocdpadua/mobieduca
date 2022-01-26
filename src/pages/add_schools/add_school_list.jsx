@@ -1,51 +1,36 @@
 import React, { useEffect, useState } from "react";
 import Loading from '../../components/loading';
+import {getSchools, deleteSchool } from "../../api_requests/json_server_req";
 
 const AddSchoolList = (props) => {
     const [listSchools, setListSchools] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        updateListSchools()
-    },[props.listSchoolsChange])
+        updateListSchools();
+    },[props.listSchoolsChange]);
 
-    const updateListSchools = () => {
+    async function updateListSchools() {
         setLoading(true);
-        fetch('http://localhost:5000/schools')
-        .then(res => res.json())
-        .then(
-            schools => {
-                setListSchools(schools)
-                setLoading(false)
-            }
-        );
+
+        const listS = await getSchools();
+
+        if(listS[0] !== 'error'){
+            setListSchools(listS);
+        }
+
+        setLoading(false);
     }
 
-    async function deleteSchool(e) {
+    async function deleteS(e) {
         const answer = window.confirm('Are you sure to delete this school?');
-        const url = 'http://localhost:5000/schools/' + e.target.value;
 
         if(answer){
-            const http = new XMLHttpRequest()
-            http.open('DELETE', url, true)    
-            http.responseType = 'json'
-
-            const result = await new Promise(function (resolve, reject) {
-                http.onload = function (e) {
-                    if (http.readyState === 4 && http.status === 200) {
-                        resolve(http)
-                        updateListSchools()
-                    } else {
-                        reject(http)
-                        alert('Error deleting school')
-                    }
-                }
-                http.onerror = function() {
-                    alert('Error deleting school')
-                }
-
-                http.send()
-            })
+            if(await deleteSchool(e.target.value)){
+                updateListSchools();
+            } else {
+                alert('Failed to Delete');
+            }
         }
     }
 
@@ -72,7 +57,7 @@ const AddSchoolList = (props) => {
                                         <td>{school.director}</td>
                                         <td>{school.localization}</td>
                                         <td>{school.shift.join(' / ')}</td>
-                                        <td id="td-delete"><button value={school.id} className="delete-school-button" onClick={deleteSchool}>X</button></td>
+                                        <td id="td-delete"><button value={school.id} className="delete-school-button" onClick={deleteS}>X</button></td>
                                     </tr>
                                 )
                             }
@@ -85,4 +70,4 @@ const AddSchoolList = (props) => {
     );
 }
 
-export default AddSchoolList
+export default AddSchoolList;

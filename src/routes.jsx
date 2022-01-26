@@ -22,7 +22,7 @@ const AppRoutes = () => {
     const LoggedOut = ({ children }) => {
         const { authenticated } = useContext(AuthContext);
 
-        return authenticated ? <Navigate to='/list-schools' /> : children
+        return authenticated ? <Navigate to='/list-schools' /> : children;
     }
 
     return(

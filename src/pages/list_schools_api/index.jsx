@@ -1,64 +1,59 @@
 import React, { useState } from "react";
-import Loading from '../../components/loading'
-import './styles.css'
+import Loading from '../../components/loading';
+import './styles.css';
 
 const ListSchoolsApi = () => {
-    const api_url = 'https://cors-anywhere.herokuapp.com/http://educacao.dadosabertosbr.com/api/escolas?'
+    const api_url = 'https://cors-anywhere.herokuapp.com/http://educacao.dadosabertosbr.com/api/escolas?';
 
     //const api_url = 'http://educacao.dadosabertosbr.com/api/escolas?nome=aplicacao'
     //https://cors-anywhere.herokuapp.com/corsdemo
 
-    const [searchKey, setSearchKey] = useState('')
-    const [listSchools, setListSchools] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [searchKey, setSearchKey] = useState('');
+    const [listSchools, setListSchools] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     async function getApi(url) {
-        const http = new XMLHttpRequest()
-        http.open('GET', url, true)    
-        http.responseType = 'json'
+        const http = new XMLHttpRequest();
+        http.open('GET', url, true); 
+        http.responseType = 'json';
         
-        setLoading(true)
+        setLoading(true);
         const result = await new Promise(function (resolve, reject) {
             http.onload = function (e) {
                 if (http.readyState === 4 && http.status === 200) {
-                    resolve(http)
+                    resolve(http);
                 } else {
-                    reject(http)
+                    reject(http);
                 }
             }
         
-            http.send()
+            http.send();
         })
-        setLoading(false)
-        return (result.response[1])
+        setLoading(false);
+        return (result.response[1]);
     }
 
     async function searcheName(){
-        const receiveList = await getApi(api_url + 'nome=' + searchKey)
-        setListSchools(receiveList)
+        const receiveList = await getApi(api_url + 'nome=' + searchKey);
+        setListSchools(receiveList);
     }
 
     const handleSearch = (e) => {
-        setSearchKey(e.target.value)
+        setSearchKey(e.target.value);
     }
 
     const admDependency = (dependency) => {
         switch (dependency) {
             case 1:
                 return 'Federal'
-                break;
             case 2:
                 return 'Estadual'
-                break;
             case 3:
                 return 'Municipal'
-                break;
             case 4:
                 return 'Privada'
-                break;
             default:
                 return '-'
-                break;
         }
     }
 
@@ -96,4 +91,4 @@ const ListSchoolsApi = () => {
     )
 }
 
-export default ListSchoolsApi
+export default ListSchoolsApi;
