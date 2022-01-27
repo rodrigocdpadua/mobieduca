@@ -1,41 +1,22 @@
 import React, { useState } from "react";
 import Loading from '../../components/loading';
+import { getSchools } from "../../api_requests/educa_api_req";
 import './styles.css';
 
 const ListSchoolsApi = () => {
     const api_url = 'https://cors-anywhere.herokuapp.com/http://educacao.dadosabertosbr.com/api/escolas?';
-
-    //const api_url = 'http://educacao.dadosabertosbr.com/api/escolas?nome=aplicacao'
     //https://cors-anywhere.herokuapp.com/corsdemo
 
     const [searchKey, setSearchKey] = useState('');
     const [listSchools, setListSchools] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    async function getApi(url) {
-        const http = new XMLHttpRequest();
-        http.open('GET', url, true); 
-        http.responseType = 'json';
-        
+    async function searcheName(e){
+        e.preventDefault();
         setLoading(true);
-        const result = await new Promise(function (resolve, reject) {
-            http.onload = function (e) {
-                if (http.readyState === 4 && http.status === 200) {
-                    resolve(http);
-                } else {
-                    reject(http);
-                }
-            }
-        
-            http.send();
-        })
-        setLoading(false);
-        return (result.response[1]);
-    }
-
-    async function searcheName(){
-        const receiveList = await getApi(api_url + 'nome=' + searchKey);
+        const receiveList = await getSchools(searchKey);
         setListSchools(receiveList);
+        setLoading(false);
     }
 
     const handleSearch = (e) => {
